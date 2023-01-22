@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="listapp.css">
+</head>
+<body>
+    <h1>List App</h1>
+    <div class="content" id="content">
+        <input type="text" id="inputbox">
+        <button id="addbutton" onclick="handleAjout()">Ajouter à la liste</button>
+        <div class="liste">
+            <ul id="list">
+
+            </ul>
+        </div>
+
+    </div>
+    <script>
+        let input=document.getElementById("inputbox");
+        let addbutton=document.getElementById("addbutton");
+        let list=document.getElementById("list");
+        function handleAjout(){
+            if (input.value==""){
+                alert("Veuillez ajouter un nom s'il vous plaît !");
+                return;
+            }
+            else{}
+                list.innerHTML+=`<li>${input.value}</li>`;
+                input.value="";
+        }
+        input.addEventListener("keypress", function(e){
+            if(e.key=="Enter"){
+                handleAjout();
+            }
+        })
+        input.addEventListener("keyup", function handleChange(e){
+            addbutton.innerHTML=`<p>Ajouter ${input.value} à la liste</p>`;
+
+        })
+        
+    </script>
+    
+</body>
+</html>
